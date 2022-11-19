@@ -1,0 +1,57 @@
+:root {
+  --backgroundColor: #272727;
+  --fontColor: #c4c4c4;
+  --gradient: linear-gradient(90deg, rgba(235, 119, 0, 1) 0%, rgba(255, 202, 40, 1) 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'JetBrains Mono', monospace, Helvetica, system-ui;
+  background-color: var(--backgroundColor);
+  color: var(--fontColor);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app {
+  width: 95%;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.text-highlighted {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn {
+  font-family: inherit;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: var(--gradient);
+  border: 2px transparent;
+  color: #000;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--fontColor);
+  color: var(--fontColor);
+}
