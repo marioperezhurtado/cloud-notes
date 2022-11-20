@@ -1,0 +1,9 @@
+.note {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: var(--borderRadius);
+  background-color: var(--secondaryBackgroundColor);
+  box-shadow: var(--shadow);
+}

@@ -8,8 +8,8 @@ const DbContext = createContext()
 const useDb = () => useContext(DbContext)
 
 const DbProvider = ({ children }) => {
-  const getNotes = () => {
-    return getDocs(collection(db, 'notes')).then((query) => {
+  const getNotes = ({ userId }) => {
+    return getDocs(collection(db, 'users', userId, 'notes')).then((query) => {
       const notes = []
       query.forEach((doc) => notes.push({ ...doc.data(), id: doc.id }))
       return notes
