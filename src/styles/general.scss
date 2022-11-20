@@ -47,10 +47,11 @@ a {
 .btn {
   display: flex;
   align-items: center;
-  font-family: inherit;
+  width: fit-content;
   padding: 0.4rem 1rem;
   border-radius: 50px;
   font-weight: bold;
+  font-family: inherit;
 
   &:hover {
     box-shadow: var(--bigShadow);

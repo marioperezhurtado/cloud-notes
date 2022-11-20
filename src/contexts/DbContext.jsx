@@ -14,7 +14,7 @@ const DbContext = createContext()
 const useDb = () => useContext(DbContext)
 
 const DbProvider = ({ children }) => {
-  const onRefreshNotes = ({ userId, onGetNotes }) => {
+  const notesListener = ({ userId, onGetNotes }) => {
     return onSnapshot(collection(db, 'users', userId, 'notes'), () =>
       onGetNotes()
     )
@@ -32,7 +32,7 @@ const DbProvider = ({ children }) => {
 
   const dbValues = {
     getNotes,
-    onRefreshNotes
+    notesListener
   }
 
   return <DbContext.Provider value={dbValues}>{children}</DbContext.Provider>

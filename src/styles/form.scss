@@ -1,0 +1,49 @@
+.auth-form {
+  form {
+    display: flex;
+    flex-direction: column;
+    max-width: 25rem;
+    margin: 7rem auto 0;
+    padding: 2rem 2.5rem 1.5rem;
+    border-radius: var(--borderRadius);
+    background-color: var(--secondaryBackgroundColor);
+
+    .error-text {
+      margin-top: 1rem;
+      color: #f56d54;
+      text-align: left;
+    }
+
+    label {
+      margin: 1.2rem 0 0.3rem;
+    }
+
+    input {
+      padding: 0.5rem 1rem 0.3rem;
+      border-radius: 50px;
+      border: 2px solid var(--fontColor);
+      background-color: transparent;
+      color: var(--fontColor);
+      font-size: 1rem;
+
+      &:focus {
+        outline: none;
+        border: 2px solid var(--backgroundColor);
+        box-shadow: var(--shadow);
+      }
+    }
+
+    button {
+      margin: 1rem 0 0 auto;
+    }
+  }
+
+  p {
+    margin-top: 1rem;
+    text-align: center;
+
+    span {
+      font-weight: bold;
+    }
+  }
+}

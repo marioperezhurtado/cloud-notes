@@ -7,7 +7,7 @@ const useUserNotes = ({ userId }) => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState()
 
-  const { getNotes, onRefreshNotes } = useDb()
+  const { getNotes, notesListener } = useDb()
 
   const onGetNotes = async () => {
     setError('')
@@ -24,8 +24,8 @@ const useUserNotes = ({ userId }) => {
   }
 
   useEffect(() => {
-    const unsub = onRefreshNotes({ userId, onGetNotes })
-    return unsub
+    const unsubscribe = notesListener({ userId, onGetNotes })
+    return unsubscribe
   }, [])
 
   return { notes, loading, error }
