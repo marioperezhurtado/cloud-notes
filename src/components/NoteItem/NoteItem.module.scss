@@ -6,4 +6,9 @@
   border-radius: var(--borderRadius);
   background-color: var(--secondaryBackgroundColor);
   box-shadow: var(--shadow);
+
+  &:hover {
+    box-shadow: var(--bigShadow);
+    transition: all 300ms;
+  }
 }

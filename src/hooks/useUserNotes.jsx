@@ -7,7 +7,7 @@ const useUserNotes = ({ userId }) => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState()
 
-  const { getNotes, onRefreshUserNotes } = useDb()
+  const { getNotes, onRefreshNotes } = useDb()
 
   const onGetNotes = async () => {
     setError('')
@@ -24,7 +24,7 @@ const useUserNotes = ({ userId }) => {
   }
 
   useEffect(() => {
-    const unsub = onRefreshUserNotes({ userId, onGetNotes })
+    const unsub = onRefreshNotes({ userId, onGetNotes })
     return unsub
   }, [])
 

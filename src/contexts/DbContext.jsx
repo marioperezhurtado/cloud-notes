@@ -1,6 +1,12 @@
 import { createContext, useContext } from 'react'
 
-import { collection, getDocs, onSnapshot } from 'firebase/firestore'
+import {
+  collection,
+  getDocs,
+  onSnapshot,
+  query,
+  orderBy
+} from 'firebase/firestore'
 import { db } from '../firebase'
 
 const DbContext = createContext()
@@ -8,14 +14,16 @@ const DbContext = createContext()
 const useDb = () => useContext(DbContext)
 
 const DbProvider = ({ children }) => {
-  const onRefreshUserNotes = ({ userId, onGetNotes }) => {
+  const onRefreshNotes = ({ userId, onGetNotes }) => {
     return onSnapshot(collection(db, 'users', userId, 'notes'), () =>
       onGetNotes()
     )
   }
 
   const getNotes = ({ userId }) => {
-    return getDocs(collection(db, 'users', userId, 'notes')).then((query) => {
+    const ref = collection(db, 'users', userId, 'notes')
+    const qry = query(ref, orderBy('date', 'desc'))
+    return getDocs(qry).then((query) => {
       const notes = []
       query.forEach((doc) => notes.push({ ...doc.data(), id: doc.id }))
       return notes
@@ -24,7 +32,7 @@ const DbProvider = ({ children }) => {
 
   const dbValues = {
     getNotes,
-    onRefreshUserNotes
+    onRefreshNotes
   }
 
   return <DbContext.Provider value={dbValues}>{children}</DbContext.Provider>
