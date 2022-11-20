@@ -1,0 +1,8 @@
+.note-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background-color: var(--secondaryBackgroundColor);
+}
