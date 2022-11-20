@@ -1,22 +1,25 @@
 import { useState, useEffect } from 'react'
 
 import useDb from '../contexts/DbContext'
+import useAuth from '../contexts/AuthContext'
 
-const useUserNotes = ({ userId }) => {
+const useUserNotes = () => {
   const [notes, setNotes] = useState()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState()
 
   const { getNotes, notesListener } = useDb()
+  const { currentUser } = useAuth()
+  const userId = currentUser.uid
 
   const onGetNotes = async () => {
     setError('')
     setLoading(true)
 
     try {
-      const res = await getNotes({ userId: 'fXRNFZimk8NHyrh808y3' })
+      const res = await getNotes({ userId })
       if (res.length) setNotes(res)
-    } catch (err) {
+    } catch {
       setError('No notes have been found')
     }
 
