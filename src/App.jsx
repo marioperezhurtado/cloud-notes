@@ -8,6 +8,7 @@ import Home from './pages/Home/Home'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Login from './pages/Login/Login'
 import Signup from './pages/Signup/Signup'
+import Profile from './pages/Profile/Profile'
 
 import './styles/general.scss'
 import './styles/form.scss'
@@ -19,6 +20,8 @@ const App = () => {
         <div className="app">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route
               path="/dashboard"
               element={
@@ -27,8 +30,14 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </div>
       </DbProvider>
