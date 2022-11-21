@@ -5,6 +5,8 @@
   gap: 0.5rem;
 
   button {
+    display: flex;
+    gap: 0.7rem;
     width: 100%;
     font-size: 1rem;
     padding: 0.5rem 1rem 0.4rem;
@@ -12,5 +14,10 @@
 
   .login-google {
     margin: 0;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 }

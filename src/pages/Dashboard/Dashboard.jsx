@@ -2,6 +2,7 @@ import useUserNotes from '../../hooks/useUserNotes'
 
 import styles from './Dashboard.module.scss'
 
+import Header from '../../components/Header/Header'
 import NoteList from '../../components/NoteList/NoteList'
 
 const Dashboard = () => {
@@ -18,6 +19,7 @@ const Dashboard = () => {
 
   return (
     <>
+      <Header />
       <div className={styles.dashboard}>
         <h1 className="text-highlighted">Dashboard</h1>
         <div className={styles['your-notes']}>

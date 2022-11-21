@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 
 import styles from './SocialLogin.module.scss'
 
+import GoogleIcon from '../../assets/GoogleIcon'
+
 const SocialLogin = ({ onSetError }) => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState()
@@ -31,6 +33,7 @@ const SocialLogin = ({ onSetError }) => {
         className={`${styles['login-google']} btn`}
         onClick={loginGoogleHandler}
         disabled={loading}>
+        <GoogleIcon />
         Login with Google
       </button>
     </div>

@@ -9,8 +9,6 @@ import Dashboard from './pages/Dashboard/Dashboard'
 import Login from './pages/Login/Login'
 import Signup from './pages/Signup/Signup'
 
-import Logout from './components/Logout/Logout'
-
 import './styles/general.scss'
 import './styles/form.scss'
 
@@ -33,7 +31,6 @@ const App = () => {
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </div>
-        <Logout />
       </DbProvider>
     </AuthProvider>
   )
