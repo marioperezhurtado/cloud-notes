@@ -9,12 +9,6 @@
     background-color: var(--secondaryBackgroundColor);
     box-shadow: var(--shadow);
 
-    .error-text {
-      margin-top: 1rem;
-      color: #f56d54;
-      text-align: left;
-    }
-
     label {
       margin: 1.2rem 0 0.3rem;
     }
@@ -47,4 +41,10 @@
       font-weight: bold;
     }
   }
+}
+
+.error-text {
+  margin-top: 1rem;
+  color: #f56d54;
+  text-align: left;
 }

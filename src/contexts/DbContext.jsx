@@ -3,9 +3,11 @@ import { createContext, useContext } from 'react'
 import {
   collection,
   getDocs,
+  addDoc,
   onSnapshot,
   query,
-  orderBy
+  orderBy,
+  Timestamp
 } from 'firebase/firestore'
 import { db } from '../firebase'
 
@@ -30,8 +32,15 @@ const DbProvider = ({ children }) => {
     })
   }
 
+  const setNote = ({ title, text, userId }) => {
+    const ref = collection(db, 'users', userId, 'notes')
+    const date = Timestamp.fromMillis(Date.now())
+    return addDoc(ref, { title, text, date })
+  }
+
   const dbValues = {
     getNotes,
+    setNote,
     notesListener
   }
 
