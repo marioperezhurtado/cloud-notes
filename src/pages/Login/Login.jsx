@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react'
 import useAuth from '../../contexts/AuthContext'
-
 import { useNavigate, Link } from 'react-router-dom'
+
+import SocialLogin from '../../components/SocialLogin/SocialLogin'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -51,6 +52,7 @@ const Login = () => {
         />
         <label htmlFor="password">Password</label>
         <input type="password" name="password" autoComplete="your-password" />
+        <SocialLogin onSetError={setError}></SocialLogin>
         <button className="btn btn-primary" disabled={loading}>
           Log In
         </button>
