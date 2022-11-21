@@ -7,14 +7,12 @@ const Header = () => {
   const navigate = useNavigate()
   const { currentUser, logout } = useAuth()
 
-  if (!currentUser) return
-
   const goToProfileHandler = () => navigate('/profile')
 
   return (
     <header className={styles.header}>
-      <button className="btn" onClick={goToProfileHandler}>
-        marioph10@gmail.com
+      <button className="btn btn-primary" onClick={goToProfileHandler}>
+        {currentUser.email}
       </button>
       <button className="btn btn-secondary" onClick={logout}>
         Log Out
