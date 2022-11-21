@@ -4,6 +4,7 @@ import styles from './Dashboard.module.scss'
 
 import Header from '../../components/Header/Header'
 import NoteList from '../../components/NoteList/NoteList'
+import Loader from '../../components/Loader/Loader'
 
 const Dashboard = () => {
   const { notes, loading, error } = useUserNotes()
@@ -23,8 +24,8 @@ const Dashboard = () => {
       <div className={styles.dashboard}>
         <h1 className="text-highlighted">Dashboard</h1>
         <div className={styles['your-notes']}>
-          {loading && <p>Loading...</p>}
-          {notes && <NoteList notes={notes}></NoteList>}
+          {loading && <Loader />}
+          {notes && <NoteList notes={notes} />}
           {!loading && !notes && <p>No notes have been found</p>}
         </div>
       </div>
