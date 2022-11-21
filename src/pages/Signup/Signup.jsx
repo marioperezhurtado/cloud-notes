@@ -35,7 +35,7 @@ const Login = () => {
     try {
       await signup(email, password)
       formRef.current.reset()
-      navigate('/dashboard')
+      navigate('/notes')
     } catch {
       setError('Failed to sign up')
     }

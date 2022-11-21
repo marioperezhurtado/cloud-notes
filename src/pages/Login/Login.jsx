@@ -30,7 +30,7 @@ const Login = () => {
     try {
       await login(email, password)
       formRef.current.reset()
-      navigate('/dashboard')
+      navigate('/notes')
     } catch {
       setError('Failed to log in')
     }
@@ -53,7 +53,7 @@ const Login = () => {
         <label htmlFor="password">Password</label>
         <input type="password" name="password" autoComplete="your-password" />
         <SocialLogin onSetError={setError}></SocialLogin>
-        <button className="btn btn-primary" disabled={loading}>
+        <button className="btn btn-primary" disabled={loading} type="submit">
           Log In
         </button>
       </form>

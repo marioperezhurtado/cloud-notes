@@ -19,7 +19,7 @@ const SocialLogin = ({ onSetError }) => {
 
     try {
       await loginGoogle()
-      navigate('/dashboard')
+      navigate('/notes')
     } catch {
       onSetError('Failed to log in with Google')
     }
@@ -32,7 +32,8 @@ const SocialLogin = ({ onSetError }) => {
       <button
         className={`${styles['login-google']} btn`}
         onClick={loginGoogleHandler}
-        disabled={loading}>
+        disabled={loading}
+        type="button">
         <GoogleIcon />
         Login with Google
       </button>

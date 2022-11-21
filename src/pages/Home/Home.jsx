@@ -17,7 +17,7 @@ const Home = () => {
           rel="noreferrer">
           Read Firebase Docs
         </a>
-        <Link to="/dashboard" className="btn btn-primary">
+        <Link to="/notes" className="btn btn-primary">
           Get Started
         </Link>
       </div>

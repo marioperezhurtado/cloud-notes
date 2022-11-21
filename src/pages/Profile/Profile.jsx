@@ -39,7 +39,14 @@ const Profile = () => {
             <h3>Created On</h3>
             <p>{createdAt}</p>
           </div>
-          <div className={styles['profile-image']}>{profileImg}</div>
+          <div
+            className={
+              imgLoading
+                ? `${styles['profile-image']} hidden`
+                : styles['profile-image']
+            }>
+            {profileImg}
+          </div>
         </div>
       </div>
     </>
