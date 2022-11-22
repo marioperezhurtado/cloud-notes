@@ -29,7 +29,9 @@
     }
 
     .note-options-dropdown {
-      display: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
       font-size: 0.9rem;
       cursor: pointer;
 
@@ -40,12 +42,6 @@
         justify-content: center;
         background-color: var(--secondaryBackgroundColor);
       }
-    }
-
-    &:hover .note-options-dropdown {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
     }
   }
 
