@@ -2,8 +2,10 @@ import { createContext, useContext } from 'react'
 
 import {
   collection,
+  doc,
   getDocs,
   addDoc,
+  deleteDoc,
   onSnapshot,
   query,
   orderBy,
@@ -38,9 +40,15 @@ const DbProvider = ({ children }) => {
     return addDoc(ref, { title, text, date })
   }
 
+  const deleteNote = ({ userId, noteId }) => {
+    const ref = doc(db, 'users', userId, 'notes', noteId)
+    return deleteDoc(ref)
+  }
+
   const dbValues = {
     getNotes,
     setNote,
+    deleteNote,
     notesListener
   }
 

@@ -21,6 +21,7 @@ body {
   font-family: 'JetBrains Mono', monospace, Helvetica, system-ui;
   background-color: var(--backgroundColor);
   color: var(--fontColor);
+  scroll-behavior: smooth;
 }
 
 ul {
