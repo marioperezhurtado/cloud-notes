@@ -14,7 +14,7 @@ const NoteItem = ({ note }) => {
   const [error, setError] = useState()
 
   const { currentUser } = useAuth()
-  const { deleteNote } = useDb()
+  const { deleteNote, updateNote } = useDb()
 
   const userId = currentUser.uid
   const noteId = note.id
@@ -29,8 +29,17 @@ const NoteItem = ({ note }) => {
     }
   }
 
-  const editNoteHandler = (e) => {
-    e.preventDefault()
+  const editNoteHandler = async ({ title, text }) => {
+    setError('')
+
+    try {
+      await updateNote({ title, text, userId, noteId })
+    } catch {
+      setError('Failed to edit note')
+    }
+
+    setEditingNote(false)
+    setOptionsOpen(false)
   }
 
   const startEditingNoteHandler = () => setEditingNote(true)

@@ -5,6 +5,7 @@ import {
   doc,
   getDocs,
   addDoc,
+  updateDoc,
   deleteDoc,
   onSnapshot,
   query,
@@ -40,6 +41,11 @@ const DbProvider = ({ children }) => {
     return addDoc(ref, { title, text, date })
   }
 
+  const updateNote = ({ title, text, userId, noteId }) => {
+    const ref = doc(db, 'users', userId, 'notes', noteId)
+    return updateDoc(ref, { title, text })
+  }
+
   const deleteNote = ({ userId, noteId }) => {
     const ref = doc(db, 'users', userId, 'notes', noteId)
     return deleteDoc(ref)
@@ -48,6 +54,7 @@ const DbProvider = ({ children }) => {
   const dbValues = {
     getNotes,
     setNote,
+    updateNote,
     deleteNote,
     notesListener
   }
