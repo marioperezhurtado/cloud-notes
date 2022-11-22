@@ -16,14 +16,19 @@ const Profile = () => {
   const createdAt = new Date(
     +currentUser.metadata.createdAt
   ).toLocaleDateString(navigator.language || 'es-US')
+  const profileImgUrl = currentUser.photoURL
 
   const profileImg = (
     <img
-      src={currentUser.photoURL}
+      src={profileImgUrl}
       alt={`${email} profile picture`}
       className={imgLoading ? 'hidden' : ''}
       crossOrigin="Anonymous"
       onLoad={imgLoadingHandler}></img>
+  )
+
+  const profileImgPlaceholder = (
+    <div className={styles['profile-img-placeholder']}>No profile picture</div>
   )
 
   return (
@@ -39,13 +44,9 @@ const Profile = () => {
             <h3>Created On</h3>
             <p>{createdAt}</p>
           </div>
-          <div
-            className={
-              imgLoading
-                ? `${styles['profile-image']} hidden`
-                : styles['profile-image']
-            }>
-            {profileImg}
+          <div className={styles['profile-image']}>
+            {!profileImgUrl && profileImgPlaceholder}
+            {profileImgUrl && profileImg}
           </div>
         </div>
       </div>
