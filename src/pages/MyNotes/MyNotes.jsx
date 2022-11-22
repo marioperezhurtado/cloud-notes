@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import useUserNotes from '../../hooks/useUserNotes'
 
 import styles from './MyNotes.module.scss'
@@ -5,18 +6,15 @@ import styles from './MyNotes.module.scss'
 import Header from '../../components/Header/Header'
 import NoteList from '../../components/NoteList/NoteList'
 import Loader from '../../components/Loader/Loader'
+import NewNote from '../../components/NewNote/NewNote'
 
 const MyNotes = () => {
   const { notes, loading, error } = useUserNotes()
 
-  if (error) {
-    return (
-      <div className={styles.notes}>
-        <h1 className="text-highlighted">My Notes</h1>
-        <p className="error-text">{error}</p>
-      </div>
-    )
-  }
+  const [newNoteOpen, setNewNoteOpen] = useState(false)
+
+  const openNewNoteHandler = () => setNewNoteOpen(true)
+  const closeNewNoteHandler = () => setNewNoteOpen(false)
 
   return (
     <>
@@ -25,7 +23,22 @@ const MyNotes = () => {
         <h1 className="text-highlighted">My Notes</h1>
         <div className={styles['your-notes']}>
           {loading && <Loader />}
-          <NoteList notes={notes} />
+          {!loading && error && <p className="error-text">{error}</p>}
+
+          <div className={styles['note-list']}>
+            <div className={styles['note-list-head']}>
+              <h2>{newNoteOpen ? 'Create New Note' : 'Recent Notes'}</h2>
+              {!newNoteOpen && (
+                <button
+                  className="btn btn-secondary"
+                  onClick={openNewNoteHandler}>
+                  Create note
+                </button>
+              )}
+            </div>
+            {newNoteOpen && <NewNote onClose={closeNewNoteHandler} />}
+            <NoteList notes={notes} />
+          </div>
         </div>
       </div>
     </>

@@ -28,8 +28,7 @@ const NewNote = ({ onClose }) => {
       await setNote({ title, text, userId: currentUser.uid })
       formRef.current.reset()
       onClose()
-    } catch (err) {
-      console.log(err)
+    } catch {
       setError('Failed to create note')
     }
   }

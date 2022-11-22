@@ -1,30 +1,12 @@
-import { useState } from 'react'
-
 import styles from './NoteList.module.scss'
 
-import NewNote from '../NewNote/NewNote'
 import NoteItem from '../NoteItem/NoteItem'
 
 const NoteList = ({ notes }) => {
-  const [newNoteOpen, setNewNoteOpen] = useState(false)
-
-  const toggleNewNoteHandler = () => setNewNoteOpen((isOpen) => !isOpen)
-
   if (!notes) {
     return (
       <ul className={styles['note-list']}>
-        <div className={styles['note-list-head']}>
-          <h2>{newNoteOpen ? 'Create New Note' : 'Recent Notes'}</h2>
-          {!newNoteOpen && (
-            <button
-              className="btn btn-secondary"
-              onClick={toggleNewNoteHandler}>
-              Create note
-            </button>
-          )}
-        </div>
-        {newNoteOpen && <NewNote onClose={toggleNewNoteHandler} />}
-        {!newNoteOpen && <p>No notes have been found</p>}
+        <p>You have not created any note yet</p>
       </ul>
     )
   }
@@ -35,20 +17,7 @@ const NoteList = ({ notes }) => {
     </li>
   ))
 
-  return (
-    <ul className={styles['note-list']}>
-      <div className={styles['note-list-head']}>
-        <h2>{newNoteOpen ? 'Create New Note' : 'Recent Notes'}</h2>
-        {!newNoteOpen && (
-          <button className="btn btn-secondary" onClick={toggleNewNoteHandler}>
-            Create note
-          </button>
-        )}
-      </div>
-      {newNoteOpen && <NewNote onClose={toggleNewNoteHandler} />}
-      {noteItems}
-    </ul>
-  )
+  return <ul className={styles['note-list']}>{noteItems}</ul>
 }
 
 export default NoteList
