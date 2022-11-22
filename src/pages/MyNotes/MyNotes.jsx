@@ -16,6 +16,8 @@ const MyNotes = () => {
   const openNewNoteHandler = () => setNewNoteOpen(true)
   const closeNewNoteHandler = () => setNewNoteOpen(false)
 
+  const emptyText = <p>You have not created any note yet</p>
+
   return (
     <>
       <Header />
@@ -25,7 +27,7 @@ const MyNotes = () => {
           {loading && <Loader />}
           {!loading && error && <p className="error-text">{error}</p>}
 
-          <div className={styles['note-list']}>
+          <div className={loading ? 'hidden' : styles['note-list']}>
             <div className={styles['note-list-head']}>
               <h2>{newNoteOpen ? 'Create New Note' : 'Recent Notes'}</h2>
               {!newNoteOpen && (
@@ -38,6 +40,7 @@ const MyNotes = () => {
             </div>
             {newNoteOpen && <NewNote onClose={closeNewNoteHandler} />}
             <NoteList notes={notes} />
+            {!notes && !newNoteOpen && emptyText}
           </div>
         </div>
       </div>
