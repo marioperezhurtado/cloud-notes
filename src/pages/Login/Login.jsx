@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
-import useAuth from '../../contexts/AuthContext'
 import { useNavigate, Link } from 'react-router-dom'
+
+import useAuth from '../../contexts/AuthContext'
 
 import SocialLogin from '../../components/SocialLogin/SocialLogin'
 

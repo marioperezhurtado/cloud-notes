@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 import useAuth from '../../contexts/AuthContext'
 
-import { useNavigate, Link } from 'react-router-dom'
+import SocialLogin from '../../components/SocialLogin/SocialLogin'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -12,7 +13,7 @@ const Login = () => {
 
   const formRef = useRef()
 
-  const loginHandler = async (e) => {
+  const signupHandler = async (e) => {
     e.preventDefault()
     setError('')
 
@@ -45,7 +46,7 @@ const Login = () => {
 
   return (
     <div className="auth-form">
-      <form ref={formRef} onSubmit={loginHandler}>
+      <form ref={formRef} onSubmit={signupHandler}>
         <h2 className="text-highlighted">Create an account</h2>
         {error && <p className="error-text">{error}</p>}
         <label htmlFor="email">Email</label>
@@ -63,6 +64,7 @@ const Login = () => {
           name="passwordRepeat"
           autoComplete="repeat-your-password"
         />
+        <SocialLogin onSetError={setError}></SocialLogin>
         <button className="btn btn-primary" disabled={loading}>
           Sign Up
         </button>
