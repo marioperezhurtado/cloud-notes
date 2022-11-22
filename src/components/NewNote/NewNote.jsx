@@ -47,10 +47,12 @@ const NewNote = ({ onClose }) => {
           <textarea name="text" autoComplete="note-text" />
         </div>
         <div className={styles['new-note-actions']}>
-          <button className="btn btn-secondary" type="text" onClick={onClose}>
+          <button className="btn btn-secondary" type="button" onClick={onClose}>
             Cancel
           </button>
-          <button className="btn btn-primary">Save Note</button>
+          <button className="btn btn-primary" type="submit">
+            Save Note
+          </button>
         </div>
       </form>
     </div>

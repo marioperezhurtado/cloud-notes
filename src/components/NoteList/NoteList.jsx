@@ -10,6 +10,25 @@ const NoteList = ({ notes }) => {
 
   const toggleNewNoteHandler = () => setNewNoteOpen((isOpen) => !isOpen)
 
+  if (!notes) {
+    return (
+      <ul className={styles['note-list']}>
+        <div className={styles['note-list-head']}>
+          <h2>{newNoteOpen ? 'Create New Note' : 'Recent Notes'}</h2>
+          {!newNoteOpen && (
+            <button
+              className="btn btn-secondary"
+              onClick={toggleNewNoteHandler}>
+              Create note
+            </button>
+          )}
+        </div>
+        {newNoteOpen && <NewNote onClose={toggleNewNoteHandler} />}
+        {!newNoteOpen && <p>No notes have been found</p>}
+      </ul>
+    )
+  }
+
   const noteItems = notes.map((n) => (
     <li key={n.id}>
       <NoteItem note={n}></NoteItem>

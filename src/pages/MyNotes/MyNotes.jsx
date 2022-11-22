@@ -25,8 +25,7 @@ const MyNotes = () => {
         <h1 className="text-highlighted">My Notes</h1>
         <div className={styles['your-notes']}>
           {loading && <Loader />}
-          {notes && <NoteList notes={notes} />}
-          {!loading && !notes && <p>No notes have been found</p>}
+          <NoteList notes={notes} />
         </div>
       </div>
     </>
