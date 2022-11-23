@@ -59,15 +59,19 @@ const NoteItem = ({ note }) => {
     )
   }
 
+  const closeOptionsButton = (
+    <button className="btn btn-secondary">Close</button>
+  )
+
   return (
     <div className={styles.note}>
       <div className={styles['note-options']}>
-        <div className="note-options-icon" onClick={toggleOptionsHandler}>
-          <OptionsIcon />
+        <div onClick={toggleOptionsHandler}>
+          {optionsOpen ? closeOptionsButton : <OptionsIcon />}
         </div>
 
         {optionsOpen && (
-          <div className={styles['note-options-dropdown']}>
+          <>
             <button
               className="btn btn-secondary"
               onClick={startEditingNoteHandler}>
@@ -76,7 +80,7 @@ const NoteItem = ({ note }) => {
             <button className="btn btn-secondary" onClick={deleteNoteHandler}>
               Delete
             </button>
-          </div>
+          </>
         )}
       </div>
 

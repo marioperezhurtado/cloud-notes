@@ -17,6 +17,11 @@
     position: absolute;
     top: 0.6rem;
     right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    cursor: pointer;
 
     svg {
       display: block;
@@ -28,20 +33,12 @@
       cursor: pointer;
     }
 
-    .note-options-dropdown {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      font-size: 0.9rem;
-      cursor: pointer;
-
-      button {
-        margin-left: auto;
-        padding: 0.1rem 0.2rem;
-        min-width: 5rem;
-        justify-content: center;
-        background-color: var(--secondaryBackgroundColor);
-      }
+    button {
+      margin-left: auto;
+      width: 100%;
+      padding: 0.1rem 0.7rem;
+      justify-content: center;
+      background-color: var(--secondaryBackgroundColor);
     }
   }
 
