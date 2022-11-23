@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <button className="btn btn-primary" onClick={goToProfileHandler}>
-        {currentUser.email}
+        {currentUser.displayName}
       </button>
       <button className="btn btn-secondary" onClick={logout}>
         Log Out

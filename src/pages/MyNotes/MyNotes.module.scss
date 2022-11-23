@@ -3,7 +3,7 @@
 
   h1 {
     margin-bottom: 2.5rem;
-    font-size: 3rem;
+    font-size: var(--titleFontSize);
   }
 
   h2 {
@@ -29,6 +29,20 @@
         margin: 0;
         font-size: 1.3rem;
       }
+    }
+  }
+}
+
+@media (max-width: 715px) {
+  .notes {
+    margin-top: 2rem;
+
+    h1 {
+      margin-bottom: 1.5rem;
+    }
+
+    .note-list {
+      padding: 0.7rem;
     }
   }
 }

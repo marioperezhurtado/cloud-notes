@@ -52,3 +52,12 @@
   color: #f56d54;
   text-align: left;
 }
+
+@media (max-width: 715px) {
+  .auth-form {
+    form {
+      margin-top: 2rem;
+      padding: 1.5rem 1.5rem 1rem;
+    }
+  }
+}

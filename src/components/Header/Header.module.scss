@@ -7,8 +7,18 @@
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
+  z-index: 1;
 
   button:last-child {
     background-color: var(--backgroundColor);
+  }
+}
+
+@media (max-width: 715px) {
+  .header {
+    top: auto;
+    bottom: 0;
+    padding: 1rem;
+    justify-content: center;
   }
 }

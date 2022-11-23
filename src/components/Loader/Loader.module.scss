@@ -52,3 +52,9 @@
     box-shadow: 0 2.5em 0 0;
   }
 }
+
+@media (max-width: 715px) {
+  .loader {
+    font-size: 7px;
+  }
+}

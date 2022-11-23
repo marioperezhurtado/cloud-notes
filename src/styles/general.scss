@@ -8,6 +8,7 @@
     0px 3px 3px -2px hsla(0, 0%, 0%, 0.12),
     0px 1px 8px 0px hsla(0, 0%, 0%, 0.2);
   --bigShadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  --titleFontSize: 3rem;
 }
 
 * {
@@ -78,6 +79,7 @@ button {
 .btn-primary {
   background: var(--gradient);
   color: #000;
+  border: 2px solid #000;
 }
 
 .btn-secondary {
@@ -88,4 +90,10 @@ button {
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 715px) {
+  :root {
+    --titleFontSize: 1.8rem;
+  }
 }
