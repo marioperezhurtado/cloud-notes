@@ -17,11 +17,12 @@ const Login = () => {
     e.preventDefault()
     setError('')
 
+    const name = formRef.current.name.value
     const email = formRef.current.email.value
     const password = formRef.current.password.value
     const passwordRepeat = formRef.current.passwordRepeat.value
 
-    if (!email || !password || !passwordRepeat) {
+    if (!name || !email || !password || !passwordRepeat) {
       setError('There are missing fields')
       return
     }
@@ -34,7 +35,7 @@ const Login = () => {
     setLoading(true)
 
     try {
-      await signup(email, password)
+      await signup({ name, email, password })
       formRef.current.reset()
       navigate('/notes')
     } catch {
@@ -49,6 +50,8 @@ const Login = () => {
       <form ref={formRef} onSubmit={signupHandler}>
         <h2 className="text-highlighted">Create an account</h2>
         {error && <p className="error-text">{error}</p>}
+        <label htmlFor="name">Name</label>
+        <input type="text" name="name" autoComplete="your-name" />
         <label htmlFor="email">Email</label>
         <input
           type="text"

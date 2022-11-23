@@ -5,7 +5,8 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signInWithPopup,
-  signOut
+  signOut,
+  updateProfile
 } from 'firebase/auth'
 import { auth, googleProvider, githubProvider } from '../firebase'
 
@@ -20,8 +21,9 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password)
   }
 
-  const signup = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password)
+  const signup = async ({ name, email, password }) => {
+    await createUserWithEmailAndPassword(auth, email, password)
+    return updateProfile(auth.currentUser, { displayName: name })
   }
 
   const loginGoogle = () => {
@@ -34,6 +36,10 @@ const AuthProvider = ({ children }) => {
 
   const logout = () => {
     return signOut(auth)
+  }
+
+  const updateUser = ({ userData }) => {
+    return updateProfile(currentUser, userData)
   }
 
   useEffect(() => {
@@ -50,7 +56,8 @@ const AuthProvider = ({ children }) => {
     signup,
     loginGoogle,
     loginGithub,
-    logout
+    logout,
+    updateUser
   }
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>

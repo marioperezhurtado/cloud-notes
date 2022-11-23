@@ -11,7 +11,7 @@ const Profile = () => {
 
   const imgLoadingHandler = () => setImgLoading(false)
 
-  const name = currentUser.displayName || 'Unnamed user'
+  const name = currentUser.displayName || 'Unnamed User'
   const email = currentUser.email
   const createdAt = new Date(
     +currentUser.metadata.createdAt
