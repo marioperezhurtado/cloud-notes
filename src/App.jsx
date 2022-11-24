@@ -10,6 +10,7 @@ import Login from './pages/Login/Login'
 import Signup from './pages/Signup/Signup'
 import ForgotPassword from './pages/ForgotPassword/ForgotPassword'
 import Profile from './pages/Profile/Profile'
+import EmailNotVerified from './pages/EmailNotVerified/EmailNotVerified'
 import PageNotFound from './pages/PageNotFound/PageNotFound'
 
 import './styles/general.scss'
@@ -41,6 +42,7 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            <Route path="/email-not-verified" element={<EmailNotVerified />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>

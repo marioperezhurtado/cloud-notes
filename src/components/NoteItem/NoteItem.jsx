@@ -104,13 +104,13 @@ const NoteItem = ({ note }) => {
             This note will be <strong>permanently</strong> deleted
           </p>
           <div>
-            <button className="btn btn-secondary" onClick={deleteNoteHandler}>
-              Delete
-            </button>
             <button
-              className="btn btn-primary"
+              className="btn btn-secondary"
               onClick={closeDeletingModalHandler}>
               Cancel
+            </button>
+            <button className="btn btn-primary" onClick={deleteNoteHandler}>
+              Delete Note
             </button>
           </div>
         </Modal>
