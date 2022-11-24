@@ -68,9 +68,11 @@ const Login = () => {
           autoComplete="repeat-your-password"
         />
         <SocialLogin onSetError={setError}></SocialLogin>
-        <button className="btn btn-primary" disabled={loading}>
-          Sign Up
-        </button>
+        <div className="auth-actions">
+          <button className="btn btn-primary" disabled={loading}>
+            Sign Up
+          </button>
+        </div>
       </form>
       <p>
         Already have an account?{' '}

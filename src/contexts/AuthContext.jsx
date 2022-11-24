@@ -6,7 +6,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updateProfile
+  updateProfile,
+  sendPasswordResetEmail
 } from 'firebase/auth'
 import { auth, googleProvider, githubProvider } from '../firebase'
 
@@ -42,6 +43,10 @@ const AuthProvider = ({ children }) => {
     return updateProfile(currentUser, userData)
   }
 
+  const resetPassword = (email) => {
+    return sendPasswordResetEmail(auth, email)
+  }
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user)
@@ -57,7 +62,8 @@ const AuthProvider = ({ children }) => {
     loginGoogle,
     loginGithub,
     logout,
-    updateUser
+    updateUser,
+    resetPassword
   }
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>

@@ -8,6 +8,7 @@ import Home from './pages/Home/Home'
 import MyNotes from './pages/MyNotes/MyNotes'
 import Login from './pages/Login/Login'
 import Signup from './pages/Signup/Signup'
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword'
 import Profile from './pages/Profile/Profile'
 import PageNotFound from './pages/PageNotFound/PageNotFound'
 
@@ -23,6 +24,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route
               path="/notes"
               element={

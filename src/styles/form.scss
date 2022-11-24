@@ -28,8 +28,20 @@
       }
     }
 
-    button {
-      margin: 1rem 0 0 auto;
+    .auth-actions {
+      margin-top: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+
+      button {
+        margin-left: auto;
+      }
+
+      a {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -45,11 +57,21 @@
   .error-text {
     text-align: left;
   }
+
+  .success-text {
+    text-align: left;
+  }
 }
 
 .error-text {
   margin-top: 1rem;
   color: #f56d54;
+  text-align: left;
+}
+
+.success-text {
+  margin-top: 1rem;
+  color: #14ab42;
   text-align: left;
 }
 

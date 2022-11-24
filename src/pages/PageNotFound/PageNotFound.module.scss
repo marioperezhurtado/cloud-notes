@@ -3,12 +3,20 @@
   text-align: center;
 
   h1 {
-    font-size: 3rem;
+    font-size: var(--titleFontSize);
     line-height: 5rem;
   }
 
   button {
     margin: 3rem auto;
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 715px) {
+  .page-not-found {
+    h1 {
+      line-height: 3rem;
+    }
   }
 }

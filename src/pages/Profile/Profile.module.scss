@@ -8,6 +8,8 @@
 
   .profile-details {
     display: flex;
+    flex-flow: row wrap;
+    gap: 1.5rem;
     justify-content: space-between;
     padding: 1.5rem 2rem;
     border-radius: var(--borderRadius);
@@ -21,7 +23,7 @@
     }
 
     .profile-image {
-      min-width: 100px;
+      max-width: 100px;
       height: 100px;
       border-radius: var(--borderRadius);
       background-color: var(--backgroundColor);

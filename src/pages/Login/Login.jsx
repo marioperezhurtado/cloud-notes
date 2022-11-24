@@ -54,9 +54,12 @@ const Login = () => {
         <label htmlFor="password">Password</label>
         <input type="password" name="password" autoComplete="your-password" />
         <SocialLogin onSetError={setError}></SocialLogin>
-        <button className="btn btn-primary" disabled={loading} type="submit">
-          Log In
-        </button>
+        <div className="auth-actions">
+          <Link to="/forgot-password">Forgot Password?</Link>
+          <button className="btn btn-primary" disabled={loading} type="submit">
+            Log In
+          </button>
+        </div>
       </form>
       <p>
         Need an account?{' '}
