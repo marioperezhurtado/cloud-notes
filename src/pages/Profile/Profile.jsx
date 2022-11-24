@@ -3,7 +3,7 @@ import useAuth from '../../contexts/AuthContext'
 
 import styles from './Profile.module.scss'
 
-import Header from '../../components/Header/Header'
+import Header from '../../layout/Header/Header'
 
 const Profile = () => {
   const { currentUser } = useAuth()

@@ -3,9 +3,9 @@ import useUserNotes from '../../hooks/useUserNotes'
 
 import styles from './MyNotes.module.scss'
 
-import Header from '../../components/Header/Header'
+import Header from '../../layout/Header/Header'
+import Loader from '../../layout/Loader/Loader'
 import NoteList from '../../components/NoteList/NoteList'
-import Loader from '../../components/Loader/Loader'
 import NewNote from '../../components/NewNote/NewNote'
 
 const MyNotes = () => {

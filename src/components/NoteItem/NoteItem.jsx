@@ -6,10 +6,12 @@ import styles from './NoteItem.module.scss'
 
 import OptionsIcon from '../../assets/OptionsIcon'
 import EditNote from '../EditNote/EditNote'
+import Modal from '../../layout/Modal/Modal'
 
 const NoteItem = ({ note }) => {
   const [optionsOpen, setOptionsOpen] = useState(false)
   const [editingNote, setEditingNote] = useState(false)
+  const [deletingNote, setDeletingNote] = useState(false)
 
   const [error, setError] = useState()
 
@@ -42,9 +44,11 @@ const NoteItem = ({ note }) => {
     setOptionsOpen(false)
   }
 
+  const toggleOptionsHandler = () => setOptionsOpen((open) => !open)
   const startEditingNoteHandler = () => setEditingNote(true)
   const stopEdittingNoteHandler = () => setEditingNote(false)
-  const toggleOptionsHandler = () => setOptionsOpen((open) => !open)
+  const openDeletingModalHanlder = () => setDeletingNote(true)
+  const closeDeletingModalHandler = () => setDeletingNote(false)
 
   const noteDate = new Date(note.date.seconds * 1000).toLocaleDateString(
     navigator.language
@@ -64,31 +68,50 @@ const NoteItem = ({ note }) => {
   )
 
   return (
-    <div className={styles.note}>
-      <div className={styles['note-options']}>
-        <div onClick={toggleOptionsHandler}>
-          {optionsOpen ? closeOptionsButton : <OptionsIcon />}
+    <>
+      <div className={styles.note}>
+        <div className={styles['note-options']}>
+          <div onClick={toggleOptionsHandler}>
+            {optionsOpen ? closeOptionsButton : <OptionsIcon />}
+          </div>
+
+          {optionsOpen && (
+            <>
+              <button
+                className="btn btn-secondary"
+                onClick={startEditingNoteHandler}>
+                Edit
+              </button>
+              <button
+                className="btn btn-secondary"
+                onClick={openDeletingModalHanlder}>
+                Delete
+              </button>
+            </>
+          )}
         </div>
 
-        {optionsOpen && (
-          <>
-            <button
-              className="btn btn-secondary"
-              onClick={startEditingNoteHandler}>
-              Edit
-            </button>
+        <h3>{note.title}</h3>
+        <p>{note.text}</p>
+        <span>{noteDate}</span>
+        {error && <p className="error-text">{error}</p>}
+      </div>
+      {deletingNote && (
+        <Modal onClose={closeDeletingModalHandler}>
+          <h2>Are you sure you want to delete this note?</h2>
+          <div>
             <button className="btn btn-secondary" onClick={deleteNoteHandler}>
               Delete
             </button>
-          </>
-        )}
-      </div>
-
-      <h3>{note.title}</h3>
-      <p>{note.text}</p>
-      <span>{noteDate}</span>
-      {error && <p className="error-text">{error}</p>}
-    </div>
+            <button
+              className="btn btn-primary"
+              onClick={closeDeletingModalHandler}>
+              Cancel
+            </button>
+          </div>
+        </Modal>
+      )}
+    </>
   )
 }
 
