@@ -54,7 +54,7 @@ const Login = () => {
         <input type="text" name="name" autoComplete="your-name" />
         <label htmlFor="email">Email</label>
         <input
-          type="text"
+          type="email"
           name="email"
           placeholder="email@example.com"
           autoComplete="your-email"

@@ -1,51 +1,57 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import useAuth from '../../contexts/AuthContext'
 
 import styles from './EmailNotVerified.module.scss'
 
+import Header from '../../layout/Header/Header'
+
 const EmailNotVerified = () => {
-  const navigate = useNavigate()
   const [error, setError] = useState()
+  const [success, setSuccess] = useState()
 
-  const { currentUser, logout } = useAuth()
+  const { currentUser, verifyUserEmail, logout } = useAuth()
 
-  if (!currentUser) return
+  if (!currentUser) return <Navigate to="/login" />
 
-  const logoutHandler = async () => {
+  const reloginHandler = () => logout()
+
+  const sendVerificationHandler = async () => {
     setError('')
+    setSuccess('')
 
     try {
-      await logout()
-      navigate('/login')
+      await verifyUserEmail()
+      setSuccess('Verification email has been re-sent')
     } catch {
-      setError('Failed to log out')
+      setError('Failed to send verification email')
     }
   }
 
-  const reloadHandler = () => location.reload()
-
   return (
-    <div className={styles['email-not-verified']}>
-      <h2>
-        Your email
-        <span className="text-highlighted"> {`"${currentUser.email}"`} </span>
-        is not verified
-      </h2>
-      {error && <p className="error-text">{error}</p>}
-      <p>To complete your account, please check your inbox</p>
-      <div>
-        <button className="btn btn-secondary">
-          Re-Send verification email
-        </button>
-        <button className="btn btn-primary" onClick={reloadHandler}>
-          My email is already verified
-        </button>
-        <button className="btn btn-secondary" onClick={logoutHandler}>
-          Log Out
-        </button>
+    <>
+      <Header />
+      <div className={styles['email-not-verified']}>
+        <h2>
+          Your email
+          <span className="text-highlighted"> {`"${currentUser.email}"`} </span>
+          is not verified
+        </h2>
+        {error && <p className="error-text">{error}</p>}
+        {success && <p className="success-text">{success}</p>}
+        <p>To complete your account, please check your inbox</p>
+        <div>
+          <button
+            className="btn btn-secondary"
+            onClick={sendVerificationHandler}>
+            Re-Send verification email
+          </button>
+          <button className="btn btn-primary" onClick={reloginHandler}>
+            My email is already verified
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

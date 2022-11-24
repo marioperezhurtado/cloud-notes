@@ -1,6 +1,7 @@
 .email-not-verified {
-  margin-top: 4rem;
+  margin: 7rem auto;
   padding: 1.5rem 2rem;
+  max-width: 30rem;
   border-radius: var(--borderRadius);
   background-color: var(--secondaryBackgroundColor);
   text-align: center;
@@ -21,5 +22,21 @@
     align-items: center;
     gap: 0.5rem;
     margin-top: 2rem;
+  }
+}
+
+
+@media (max-width: 715px) {
+  .email-not-verified {
+    margin-top: 2rem;
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.3rem;
+
+      span {
+        word-wrap: break-word;
+      }
+    }
   }
 }

@@ -46,7 +46,7 @@ const Login = () => {
         {error && <p className="error-text">{error}</p>}
         <label htmlFor="email">Email</label>
         <input
-          type="text"
+          type="email"
           name="email"
           placeholder="email@example.com"
           autoComplete="your-email"

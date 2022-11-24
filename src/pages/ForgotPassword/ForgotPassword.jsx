@@ -14,6 +14,7 @@ const ForgotPassword = () => {
   const resetPasswordHandler = async (e) => {
     e.preventDefault()
     setError('')
+    setSuccess('')
 
     const email = formRef.current.email.value
 
