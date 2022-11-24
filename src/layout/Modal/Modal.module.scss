@@ -3,13 +3,17 @@
   top: 20vh;
   left: 50%;
   width: 90%;
-  max-width: 25rem;
+  max-width: 27rem;
   transform: translateX(-50%);
   z-index: 1;
   padding: 1.5rem 2rem;
   border-radius: var(--borderRadius);
   background-color: var(--secondaryBackgroundColor);
   box-shadow: var(--shadow);
+
+  p {
+    margin: 1rem 0 0;
+  }
 
   div {
     display: flex;

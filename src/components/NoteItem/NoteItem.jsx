@@ -99,6 +99,10 @@ const NoteItem = ({ note }) => {
       {deletingNote && (
         <Modal onClose={closeDeletingModalHandler}>
           <h2>Are you sure you want to delete this note?</h2>
+          <p>{`"${note.title}" - ${noteDate}`}</p>
+          <p>
+            This note will be <strong>permanently</strong> deleted
+          </p>
           <div>
             <button className="btn btn-secondary" onClick={deleteNoteHandler}>
               Delete
