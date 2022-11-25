@@ -13,6 +13,15 @@ import { auth, googleProvider, githubProvider } from '../firebase'
 
 const AuthContext = createContext()
 
+const errorCodes = {
+  'auth/user-not-found': 'There is no account with this email',
+  'auth/wrong-password': 'Incorrect password',
+  'auth/email-already-exists': 'There is already an account with this email',
+  'auth/phone-number-already-exists':
+    'There is already an account with this phone number',
+  'auth/insufficient-permission': 'Your account is not allowed to do this'
+}
+
 const useAuth = () => useContext(AuthContext)
 
 const AuthProvider = ({ children }) => {
@@ -63,6 +72,7 @@ const AuthProvider = ({ children }) => {
 
   const values = {
     currentUser,
+    errorCodes,
     login,
     signup,
     loginGoogle,

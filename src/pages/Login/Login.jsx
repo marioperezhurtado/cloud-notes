@@ -10,7 +10,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
 
-  const { login } = useAuth()
+  const { login, errorCodes } = useAuth()
 
   const formRef = useRef()
 
@@ -32,8 +32,8 @@ const Login = () => {
       await login(email, password)
       formRef.current.reset()
       navigate('/notes')
-    } catch {
-      setError('Failed to log in')
+    } catch (err) {
+      setError(errorCodes[err.code] || 'Failed to log in')
     }
 
     setLoading(false)

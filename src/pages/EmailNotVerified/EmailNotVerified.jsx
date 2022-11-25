@@ -10,7 +10,7 @@ const EmailNotVerified = () => {
   const [error, setError] = useState()
   const [success, setSuccess] = useState()
 
-  const { currentUser, verifyUserEmail, logout } = useAuth()
+  const { currentUser, verifyUserEmail, logout, errorCodes } = useAuth()
 
   if (!currentUser) return <Navigate to="/login" />
 
@@ -23,8 +23,8 @@ const EmailNotVerified = () => {
     try {
       await verifyUserEmail()
       setSuccess('Verification email has been re-sent')
-    } catch {
-      setError('Failed to send verification email')
+    } catch (err) {
+      setError(errorCodes[err.code] || 'Failed to send verification email')
     }
   }
 

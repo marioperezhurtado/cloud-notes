@@ -11,7 +11,7 @@ const SocialLogin = ({ onSetError }) => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState()
 
-  const { loginGoogle, loginGithub } = useAuth()
+  const { loginGoogle, loginGithub, errorCodes } = useAuth()
 
   const loginGoogleHandler = async (e) => {
     e.preventDefault()
@@ -21,8 +21,8 @@ const SocialLogin = ({ onSetError }) => {
     try {
       await loginGoogle()
       navigate('/notes')
-    } catch {
-      onSetError('Failed to log in with Google')
+    } catch (err) {
+      onSetError(errorCodes[err.code] || 'Failed to log in with Google')
     }
 
     setLoading(false)
@@ -36,8 +36,8 @@ const SocialLogin = ({ onSetError }) => {
     try {
       await loginGithub()
       navigate('/notes')
-    } catch {
-      onSetError('Failed to log in with GitHub')
+    } catch (err) {
+      onSetError(errorCodes[err.code] || 'Failed to log in with GitHub')
     }
 
     setLoading(false)

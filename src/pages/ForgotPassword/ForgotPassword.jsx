@@ -7,7 +7,7 @@ const ForgotPassword = () => {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
 
-  const { resetPassword } = useAuth()
+  const { resetPassword, errorCodes } = useAuth()
 
   const formRef = useRef()
 
@@ -29,8 +29,8 @@ const ForgotPassword = () => {
       await resetPassword(email)
       setSuccess('Check your inbox to finish resetting your password')
       formRef.current.reset()
-    } catch {
-      setError('Failed to send reset password email')
+    } catch (err) {
+      setError(errorCodes[err.code] || 'Failed to send reset password email')
     }
 
     setLoading(false)

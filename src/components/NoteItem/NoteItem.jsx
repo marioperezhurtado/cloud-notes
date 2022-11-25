@@ -15,7 +15,7 @@ const NoteItem = ({ note }) => {
 
   const [error, setError] = useState()
 
-  const { currentUser } = useAuth()
+  const { currentUser, errorCodes } = useAuth()
   const { deleteNote, updateNote } = useDb()
 
   const userId = currentUser.uid
@@ -26,8 +26,8 @@ const NoteItem = ({ note }) => {
 
     try {
       await deleteNote({ userId, noteId })
-    } catch {
-      setError('Failed to delete note')
+    } catch (err) {
+      setError(errorCodes[err.code] || 'Failed to delete note')
     }
   }
 
@@ -36,8 +36,8 @@ const NoteItem = ({ note }) => {
 
     try {
       await updateNote({ title, text, userId, noteId })
-    } catch {
-      setError('Failed to edit note')
+    } catch (err) {
+      setError(errorCodes[err.code] || 'Failed to edit note')
     }
 
     setEditingNote(false)

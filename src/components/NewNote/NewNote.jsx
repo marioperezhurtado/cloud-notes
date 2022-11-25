@@ -7,7 +7,7 @@ import styles from './NewNote.module.scss'
 const NewNote = ({ onClose }) => {
   const [error, setError] = useState()
 
-  const { currentUser } = useAuth()
+  const { currentUser, errorCodes } = useAuth()
   const { setNote } = useDb()
 
   const formRef = useRef()
@@ -28,8 +28,8 @@ const NewNote = ({ onClose }) => {
       await setNote({ title, text, userId: currentUser.uid })
       formRef.current.reset()
       onClose()
-    } catch {
-      setError('Failed to create note')
+    } catch (err) {
+      setError(errorCodes[err.code] || 'Failed to create note')
     }
   }
 

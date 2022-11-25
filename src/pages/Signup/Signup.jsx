@@ -9,7 +9,7 @@ const Login = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
 
-  const { signup } = useAuth()
+  const { signup, errorCodes } = useAuth()
 
   const formRef = useRef()
 
@@ -38,8 +38,8 @@ const Login = () => {
       await signup({ name, email, password })
       formRef.current.reset()
       navigate('/notes')
-    } catch {
-      setError('Failed to sign up')
+    } catch (err) {
+      setError(errorCodes[err.code] || 'Failed to sign up')
     }
 
     setLoading(false)
