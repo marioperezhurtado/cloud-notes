@@ -2,7 +2,9 @@
 
 Cloud Notes App - React ⚛️ & Firebase 🔥
 
-This project uses BaaS (Firebase), to use authentication & database with React.
+Store your notes in the cloud instantly between all your devices
+
+This project uses BaaS (Firebase), to use authentication & database in React.
 
 ## Getting Started
 
@@ -17,6 +19,10 @@ Move to new directory:
 Install all dependencies:
 
 <pre><code>npm install</code></pre>
+
+Register and setup your Firebase App
+
+[Firebase Docs](https://firebase.google.com/docs/web/setup)
 
 ## Usage
 
