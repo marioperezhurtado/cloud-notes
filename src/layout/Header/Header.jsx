@@ -13,6 +13,11 @@ const Header = () => {
   const goToProfileHandler = () => navigate('/profile')
   const goToNotesHandler = () => navigate('/notes')
 
+  let userName = currentUser.displayName
+  if (userName.length > 20) {
+    userName = currentUser.displayName.slice(0, 20) + '...'
+  }
+
   if (onProfile) {
     return (
       <header className={styles.header}>
@@ -29,7 +34,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <button className="btn btn-primary" onClick={goToProfileHandler}>
-        {currentUser.displayName}
+        {userName}
       </button>
       <button className="btn btn-secondary" onClick={logout}>
         Log Out
