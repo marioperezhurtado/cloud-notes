@@ -31,10 +31,20 @@ const EditNote = ({ note, onEdit, onCancel }) => {
       <form ref={formRef} onSubmit={editNoteHandler}>
         {error && <p className="error-text">{error}</p>}
         <div>
-          <input type="text" name="title" defaultValue={prevTitle} />
+          <input
+            type="text"
+            name="title"
+            defaultValue={prevTitle}
+            spellCheck="false"
+          />
         </div>
         <div>
-          <textarea type="text" name="text" defaultValue={prevText} />
+          <textarea
+            type="text"
+            name="text"
+            defaultValue={prevText}
+            spellCheck="false"
+          />
         </div>
         <div className={styles['edit-note-actions']}>
           <button className="btn btn-secondary" onClick={onCancel}>

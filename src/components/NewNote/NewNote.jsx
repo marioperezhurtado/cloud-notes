@@ -39,11 +39,16 @@ const NewNote = ({ onClose }) => {
       <form ref={formRef} onSubmit={createNoteHandler}>
         <div>
           <label htmlFor="title">Title</label>
-          <input type="text" name="title" autoComplete="note-title" />
+          <input
+            type="text"
+            name="title"
+            autoComplete="note-title"
+            spellCheck="false"
+          />
         </div>
         <div>
           <label htmlFor="text">Text</label>
-          <textarea name="text" autoComplete="note-text" />
+          <textarea name="text" autoComplete="note-text" spellCheck="false" />
         </div>
         <div className={styles['new-note-actions']}>
           <button className="btn btn-secondary" type="button" onClick={onClose}>
