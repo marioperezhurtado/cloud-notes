@@ -1,5 +1,7 @@
 ## Cloud Notes ☁️✏️
 
+![Cloud Notes App sync between devices demo](./doc/project-overview.gif)
+
 Cloud Notes App - React ⚛️ & Firebase 🔥
 
 Store your notes in the cloud instantly between all your devices
