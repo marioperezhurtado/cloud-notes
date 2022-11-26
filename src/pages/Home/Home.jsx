@@ -29,7 +29,7 @@ const Home = () => {
           Share your notes <span className="text-highlighted">instantly</span>{' '}
           between all your devices
         </h2>
-        <video autoPlay loop muted>
+        <video autoPlay loop muted playsInline>
           <source src="/app-demo.webm" type="video/webm" />
           <source src="/app-demo.mp4" type="video/mp4" />
         </video>

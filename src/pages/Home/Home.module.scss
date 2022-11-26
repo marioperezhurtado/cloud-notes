@@ -26,6 +26,8 @@
   }
 
   .home-demo {
+    animation: slideIn 500ms ease-in-out;
+
     h2 {
       font-size: var(--mediumFontSize);
       margin-bottom: 2rem;
@@ -55,5 +57,17 @@
         gap: 1rem;
       }
     }
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translateX(0%);
   }
 }
