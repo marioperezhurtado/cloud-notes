@@ -31,6 +31,7 @@ const Home = () => {
         </h2>
         <video autoPlay loop muted>
           <source src="/app-demo.webm" type="video/webm" />
+          <source src="/app-demo.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
