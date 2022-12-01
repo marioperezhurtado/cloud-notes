@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import useAuth from '../../contexts/AuthContext'
 
 import SocialLogin from '../../components/SocialLogin/SocialLogin'
+import PasswordInput from '../../layout/PasswordInput/PasswordInput'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -52,7 +53,7 @@ const Login = () => {
           autoComplete="your-email"
         />
         <label htmlFor="password">Password</label>
-        <input type="password" name="password" autoComplete="your-password" />
+        <PasswordInput name="password" autoComplete="your-password" />
         <SocialLogin onSetError={setError}></SocialLogin>
         <div className="auth-actions">
           <Link to="/forgot-password">Forgot Password?</Link>

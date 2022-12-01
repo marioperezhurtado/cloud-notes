@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import useAuth from '../../contexts/AuthContext'
 
 import SocialLogin from '../../components/SocialLogin/SocialLogin'
+import PasswordInput from '../../layout/PasswordInput/PasswordInput'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -60,10 +61,9 @@ const Login = () => {
           autoComplete="your-email"
         />
         <label htmlFor="password">Password</label>
-        <input type="password" name="password" autoComplete="your-password" />
+        <PasswordInput name="password" autoComplete="your-password" />
         <label htmlFor="passwordRepeat">Repeat Pasword</label>
-        <input
-          type="password"
+        <PasswordInput
           name="passwordRepeat"
           autoComplete="repeat-your-password"
         />
